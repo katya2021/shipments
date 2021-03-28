@@ -1,0 +1,26 @@
+<div class="login">
+  <form [formGroup]="form" >
+      <div class="contenedor">
+          <div class="row">
+              <div class="title">
+                  <span>Iniciar sesion</span>
+              </div>
+          </div>
+          <div class="row">
+              <div class="campo">
+                  <input type="text" formControlName="email" value="" placeholder="Usuario">
+              </div>
+          </div>
+          <div class="row">
+              <div class="campo">
+                  <input type="text" formControlName="password" value="" placeholder="Contraseña">
+              </div>
+          </div>
+          <div class="row">
+              <div class="action">
+                  <button>Entrar</button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
