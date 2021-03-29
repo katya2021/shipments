@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusCreateComponent implements OnInit {
   // statuForm: FormGroup;
-  constructor() { } //protected statuServices: StatusService
+  constructor() { } // protected statuServices: StatusService
 
   ngOnInit(): void {
     // this.construirFormularioEstado();

@@ -11,12 +11,13 @@ import { StatusService } from '@feature/status/shared/service/status.service';
 export class StatusListComponent implements OnInit {
   public listStatus: Status[];
 
-  constructor(protected statuService: StatusService) { } //protected statuService: StatusService
+  constructor(protected statuService: StatusService) { } // protected statuService: StatusService
 
-  ngOnInit(): void {
-    this.statuService.consultar().then((response) => {
-      this.listStatus = response;
-    })
+  public ngOnInit(): void {
+    this.initData();
   }
 
+  private async initData(): Promise<void> {
+    this.listStatus = await this.statuService.consultar();
+  }
 }

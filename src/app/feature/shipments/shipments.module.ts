@@ -20,7 +20,7 @@ import { HttpService } from '@core/services/http/http.service';
     ShipmentsRoutingModule,
     SharedModule
   ],
-  providers:[
+  providers: [
     HttpService,
     ShipmentsService,
 
