@@ -37,6 +37,15 @@ pipeline {
         sh 'npm run-script build'
       }
     }
+
+    stage('Sonar Analysis') {
+    steps {
+        echo '------------>Analisis de código estático<------------'
+        withSonarQubeEnv('Sonar') {
+            sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dsonar.projectKey=co.com.ceiba:SalaEnsayo.sebastian.parrasi.master -Dsonar.projectName=co.com.ceiba:SalaEnsayo.sebastian.parrasi.master -Dproject.settings=./sonar-project.properties"
+        }
+    }
+  }
   }
 
   post {
@@ -48,4 +57,6 @@ pipeline {
       )
     }
   }
+
+
 }
