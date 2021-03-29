@@ -1,10 +1,10 @@
 export class Shipments {
   id: string;
-  first_name: string;
+  firstName: string;
 
-  constructor(id: string, first_name: string) {
+  constructor(id: string, firstName: string) {
 
       this.id = id;
-      this.first_name = first_name;
+      this.firstName = firstName;
   }
 }

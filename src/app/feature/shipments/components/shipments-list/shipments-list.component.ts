@@ -13,9 +13,11 @@ export class ShipmentsListComponent implements OnInit {
 
   constructor(protected shipmentsService: ShipmentsService) { }
 
-  ngOnInit(): void {
-    this.shipmentsService.consultar().then((response) => {
-      this.listShipments = response;
-    })
+  public ngOnInit(): void {
+    this.initData();
+  }
+
+  private async initData(): Promise<void> {
+    this.listShipments = await this.shipmentsService.consultar();
   }
 }
