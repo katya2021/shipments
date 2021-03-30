@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   constructor(private httpService: HttpService,  private tokenService: TokenService) { }
 
-  public login(params: { email: string; password: string }): Promise<any> {
+  public login(params: { email: string; password: string }): Promise<unknown> {
     return this.httpService.doPost(environment.apiUrl + API.LOGIN, params).toPromise();
   }
 

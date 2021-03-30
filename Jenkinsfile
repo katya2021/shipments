@@ -27,16 +27,19 @@ pipeline {
         sh 'npm run-script lint'
       }
     }
-    stage('Test') {
-      steps {
-        sh 'npm run-script test'
-      }
-    }
+
     stage('Build') {
       steps {
         sh 'npm run-script build'
       }
     }
+
+    stage('Test- Frontend'){
+			steps {
+				echo '------------>Test Frontend<------------'
+					sh 'npm run-script test --watch=false --browsers ChromeHeadless --code-coverage'
+			}
+		}
 
     stage('Sonar Analysis') {
     steps {
