@@ -26,6 +26,6 @@ import { TrackByPipe } from './pipe/track-by.pipe';
     ReactiveFormsModule,
     FormsModule,
     TrackByPipe
-  ]
+  ],
 })
 export class SharedModule { }

@@ -26,6 +26,7 @@ export class ShipmentsCreateComponent implements OnInit {
       originAddress: new FormControl(),
       destinationAddress: new FormControl(),
       weight: new FormControl(),
+      price: new FormControl(),
       note: new FormControl(),
     });
   }

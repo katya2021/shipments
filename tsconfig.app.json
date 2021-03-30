@@ -4,29 +4,6 @@
     "baseUrl": "./",
     "outDir": "./out-tsc/app",
     "types": [],
-    "paths": {
-      "@core/*": [
-        "src/app/core/*"
-      ],
-      "@feature/*": [
-        "src/app/feature/*"
-      ],
-      "@core-service/*": [
-        "src/app/core/services/*"
-      ],
-      "@home/*": [
-        "src/app/feature/home/*"
-      ],
-      "@authentication/*": [
-        "src/app/feature/authentication/*"
-      ],
-      "@producto/*": [
-        "src/app/feature/producto/*"
-      ],
-      "@shared/*": [
-        "src/app/shared/*"
-      ]
-    }
   },
   "files": [
     "src/main.ts",

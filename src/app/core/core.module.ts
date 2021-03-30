@@ -10,6 +10,8 @@ import { HttpService } from './services/http/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
+import { NavbarService } from './services/navbar/navbar.service';
+import { AuthenticationService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [ToolbarComponent, NavbarComponent],
@@ -22,6 +24,8 @@ import { SharedModule } from '@shared/shared.module';
   providers: [
     HttpService,
     SecurityGuard,
+    NavbarService,
+    AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: ManejadorError }

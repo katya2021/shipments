@@ -17,7 +17,7 @@ export class StatusListComponent implements OnInit {
     this.initData();
   }
 
-  private async initData(): Promise<void> {
+  public async initData(): Promise<void> {
     this.listStatus = await this.statuService.get();
   }
 }

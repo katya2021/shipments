@@ -17,7 +17,7 @@ export class ShipmentsListComponent implements OnInit {
     this.initData();
   }
 
-  private async initData(): Promise<void> {
+  public async initData(): Promise<void> {
     this.listShipments = await this.shipmentsService.get();
   }
 }
