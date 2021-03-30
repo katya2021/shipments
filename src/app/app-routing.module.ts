@@ -4,7 +4,6 @@ import { AuthenticationModule } from '@feature/authentication/authentication.mod
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityGuard } from '@core/guard/security.guard';
-// import { SecurityGuard } from '@core/guard/security.guard';
 import { LoginComponent } from '@feature/authentication/login/login.component';
 import { ShipmentsModule } from '@feature/shipments/shipments.module';
 

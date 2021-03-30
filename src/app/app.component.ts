@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.navbarService.subscribe((result) => {
-      console.log(result);
       this.showMenu = result;
     });
   }
