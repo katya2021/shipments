@@ -10,6 +10,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('StatusListComponent', () => {
   let component: StatusListComponent;
   let fixture: ComponentFixture<StatusListComponent>;
+  // let statusServicio: StatusService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,6 +27,7 @@ describe('StatusListComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StatusListComponent);
+    // statusServicio = TestBed.inject(StatusService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -33,4 +35,16 @@ describe('StatusListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('#listarUsuarios  Se intenta listar usuarios ', (done: DoneFn) => {
+  //   // Arrange
+  //   const spyListStatus = spyOn(statusServicio, 'listarUsuarios').and.returnValue(Promise.resolve([]));
+  //   // Act
+  //   component.ngOnInit();
+  //   // Assert
+  //   expect(spyListStatus).toHaveBeenCalledTimes(1);
+  //   expect(Array.isArray(component.usuarios)).toBeTrue();
+  //   done();
+  // });
+
 });

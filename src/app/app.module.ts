@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from '@home/home.component';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationModule } from './feature/authentication/authentication.module';
@@ -14,7 +13,6 @@ import { AuthenticationModule } from './feature/authentication/authentication.mo
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,

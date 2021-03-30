@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // import { SecurityGuard } from '@core/guard/security.guard';
-import { HomeComponent } from '@home/home.component';
 import { LoginComponent } from '@feature/authentication/login/login.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent},
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule)},
   { path: 'status', loadChildren: () => import('@feature/status/status.module').then(mod => mod.StatusModule)},
 

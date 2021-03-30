@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
-  styleUrls: ['./status.component.sass']
+  styleUrls: ['./status.component.scss']
 })
 export class StatusComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

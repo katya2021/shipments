@@ -8,7 +8,11 @@ export class StatusService {
 
   constructor(protected http: HttpService) { }
 
-  public consultar() {
+  public get() {
     return this.http.doGet<Status[]>(`${environment.apiUrl}/status`).toPromise();
+  }
+
+  public save(status: Status) {
+    return this.http.doPost<Status, boolean>(`${environment.apiUrl}/status`, status).toPromise();
   }
 }

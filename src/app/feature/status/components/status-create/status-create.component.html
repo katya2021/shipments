@@ -1,29 +1,14 @@
-<!-- <div class="login">
-  <form  >
-      <div class="contenedor">
-          <div class="row">
-              <div class="title">
-                  <span>Crear Usuarios</span>
-              </div>
-          </div>
-          <div class="row">
-              <div class="campo">
-                  <input type="text" formControlName="name" value="" placeholder="Nombre">
-              </div>
-          </div>
-          <div class="row">
-              <div class="campo">
-                  <input type="text" formControlName="job" value="" placeholder="Trabajo">
-              </div>
-          </div>
-          <div class="row">
-              <div class="action">
-                  <button >Entrar</button> -->
-                  <!-- (click)="create()" -->
-              <!-- </div>
-          </div>
+<div class="status-create">
+  <div class="container">
+    <h2>Crear estado</h2>
+    <form [formGroup]="statuForm" (ngSubmit)="create()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input class="form-control" type="text" placeholder="Bodega medellín..." formControlName="name">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
-  </form>
-</div> -->
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  </div>
+</div>
 
-<h1>HOLA</h1>

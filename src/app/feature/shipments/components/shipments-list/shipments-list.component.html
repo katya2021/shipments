@@ -1,7 +1,31 @@
-<div id="shipments">
-  <ul class="shipments">
-    <li *ngFor="let item of listShipments">
-      <span>{{item.id}}</span> {{item.startCity}}
-    </li>
-  </ul>
+<div class="shipments-list">
+  <div class="container">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Codigo envío</th>
+          <th>Description</th>
+          <th>Nota</th>
+          <th>Dirección origen</th>
+          <th>Direccion destino</th>
+          <th>Peso</th>
+          <th>Precio</th>
+          <th>Fecha entrega</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listShipments" >
+          <td scope="row">{{item.id}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.note}}</td>
+          <td>{{item.originAddress}}</td>
+          <td>{{item.destinationAddress}}</td>
+          <td>{{item.weight}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.deliveryDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+

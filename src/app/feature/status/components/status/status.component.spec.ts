@@ -7,6 +7,7 @@ import { StatusComponent } from './status.component';
 describe('StatusComponent', () => {
   let component: StatusComponent;
   let fixture: ComponentFixture<StatusComponent>;
+  // let usuarioService: UsuarioService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

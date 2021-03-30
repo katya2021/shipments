@@ -5,7 +5,7 @@ import { ShipmentsService } from '@feature/shipments/shared/service/shipments.se
 @Component({
   selector: 'app-shipments-list',
   templateUrl: './shipments-list.component.html',
-  styleUrls: ['./shipments-list.component.sass']
+  styleUrls: ['./shipments-list.component.scss']
 })
 export class ShipmentsListComponent implements OnInit {
 
@@ -18,6 +18,6 @@ export class ShipmentsListComponent implements OnInit {
   }
 
   private async initData(): Promise<void> {
-    this.listShipments = await this.shipmentsService.consultar();
+    this.listShipments = await this.shipmentsService.get();
   }
 }

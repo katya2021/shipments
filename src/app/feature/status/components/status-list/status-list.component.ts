@@ -6,7 +6,7 @@ import { StatusService } from '@feature/status/shared/service/status.service';
 @Component({
   selector: 'app-status-list',
   templateUrl: './status-list.component.html',
-  styleUrls: ['./status-list.component.sass']
+  styleUrls: ['./status-list.component.scss']
 })
 export class StatusListComponent implements OnInit {
   public listStatus: Status[];
@@ -18,6 +18,6 @@ export class StatusListComponent implements OnInit {
   }
 
   private async initData(): Promise<void> {
-    this.listStatus = await this.statuService.consultar();
+    this.listStatus = await this.statuService.get();
   }
 }

@@ -1,1 +1,34 @@
-<p>shipments-create works!</p>
+<div class='shipments-create'>
+  <div class="container">
+    <h2>Crear envíos</h2>
+      <form  [formGroup]="shipmentsForm" (ngSubmit)="create()">
+        <div class="row">
+            <div class="form-group col-md-12">
+              <label for="">Descripcion: </label>
+              <input class="form-control" type="text" placeholder="PC portatil ceiba marca DELL..." formControlName="descripcion">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Direccion origen: </label>
+              <input class="form-control" type="text" placeholder="" formControlName="originAddress">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleInputEmail1">Direccion destino: </label>
+              <input class="form-control" type="text" placeholder="" formControlName="destinationAddress">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleInputEmail1">Peso: </label>
+              <input class="form-control" type="number" placeholder="" formControlName="weight">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleInputEmail1">Precio: </label>
+              <input class="form-control" type="number" placeholder="" formControlName="price" disabled>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="">Nota: </label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="note" ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+          </div>
+        </form>
+    </div>
+</div>

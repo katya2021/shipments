@@ -26,7 +26,7 @@ export class CrearProductoComponent implements OnInit {
     this.productoForm = new FormGroup({
       id: new FormControl('', [Validators.required]),
       descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
     });
   }
 

@@ -27,14 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   public sendData(): void {
-    // if (this.form.valid) {
-    //   const {email, password} = this.form.value;
-    //   this.authenticationService.login({email, password})
-    //     .then((respuesta: { token: string }) => {
-    //       this.tokenService.createToken(respuesta);
-    //       this.router.navigate(['/']);
-    //     });
-    // }
   }
 
 }
