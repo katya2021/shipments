@@ -6,8 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationModule } from './feature/authentication/authentication.module';
-import { HomeModule } from './feature/home/home.module';
-
+import { MarketRepresentativeRateModule } from '@feature/market-representative-rate/market-representative-rate.module';
 
 
 
@@ -20,7 +19,7 @@ import { HomeModule } from './feature/home/home.module';
     AppRoutingModule,
     CoreModule,
     AuthenticationModule,
-    HomeModule,
+    MarketRepresentativeRateModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

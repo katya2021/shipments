@@ -1,7 +1,7 @@
-import { Status } from '@feature/status/shared/model/status';
+import { Status } from '@shared/model/status';
 
 import { Component, OnInit } from '@angular/core';
-import { StatusService } from '@feature/status/shared/service/status.service';
+import { StatusService } from '@shared/service/status.service';
 
 @Component({
   selector: 'app-status-list',
@@ -19,5 +19,9 @@ export class StatusListComponent implements OnInit {
 
   public async initData(): Promise<void> {
     this.listStatus = await this.statuService.get();
+  }
+
+  public deleteStatus(id: string) {
+    this.statuService.delete(id);
   }
 }

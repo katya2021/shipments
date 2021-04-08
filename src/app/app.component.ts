@@ -1,28 +1,20 @@
-import { NavbarService } from './core/services/navbar/navbar.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from '@core/modelo/menu-item';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  public showMenu: boolean;
-  public companies: MenuItem[] = [
-    { url: '/home', nombre: 'home' },
-    { url: '/status', nombre: 'Estados' },
-    { url: '/shipments', nombre: 'Envíos' },
-    { url: '/logout', nombre: 'Envíos' }
+  public menuItem: MenuItem[] = [
+    { url: '/trm', nombre: 'TRM', isAuth: false },
+    { url: '/status', nombre: 'Estados', isAuth: true},
+    { url: '/shipments', nombre: 'Envíos', isAuth: true},
+    { url: '/search', nombre: 'Rastrear Envio', isAuth: false },
+    { url: '/login', nombre: 'Login', isAuth: false },
   ];
 
-  constructor(private navbarService: NavbarService) {}
-
-  public ngOnInit(): void {
-    this.navbarService.subscribe((result) => {
-      this.showMenu = result;
-    });
-  }
+  constructor() {}
 }

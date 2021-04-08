@@ -1,10 +1,15 @@
+import { Status } from '@shared/model/status';
+
 export class Shipments {
   id: string;
-  firstName: string;
-
-  constructor(id: string, firstName: string) {
-
-      this.id = id;
-      this.firstName = firstName;
-  }
+  weight: number;
+  price: number;
+  originAddress: string;
+  destinationAddress: string;
+  createdAt: Date;
+  deliveryDate: Date;
+  updatedAt: Date;
+  tracking: Status[];
+  note: string;
+  description: string;
 }

@@ -17,6 +17,6 @@ export class CredentialStorageService {
   }
 
   public deleteItem(name: string): void {
-    window.localStorage.deleteItem(name);
+    window.localStorage.removeItem(name);
   }
 }

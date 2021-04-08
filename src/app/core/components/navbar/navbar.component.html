@@ -1,5 +1,5 @@
 <nav>
-    <a *ngFor="let item of items" [routerLink]="item.url" routerLinkActive="active">{{item.nombre}}</a>
+    <a *ngFor="let item of showItems" [routerLink]="item.url" routerLinkActive="active">{{item.nombre}}</a>
     <a (click)="logout()">Cerrar sesion</a>
 </nav>
 

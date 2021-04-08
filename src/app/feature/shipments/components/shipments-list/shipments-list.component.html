@@ -1,32 +1,48 @@
 <div class="shipments-list">
   <div class="container">
-    <table class="table">
-      <caption> Resultados lista envios </caption>
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Codigo envío</th>
-          <th scope="col">Description</th>
-          <th scope="col">Nota</th>
-          <th scope="col">Dirección origen</th>
-          <th scope="col">Direccion destino</th>
-          <th scope="col">Peso</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Fecha entrega</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of listShipments" >
-          <td scope="row">{{item.id}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.note}}</td>
-          <td>{{item.originAddress}}</td>
-          <td>{{item.destinationAddress}}</td>
-          <td>{{item.weight}}</td>
-          <td>{{item.price}}</td>
-          <td>{{item.deliveryDate}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table">
+        <caption> Resultados lista envios </caption>
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Codigo envío</th>
+            <th scope="col">Description</th>
+            <th scope="col">Nota</th>
+            <th scope="col">Dirección origen</th>
+            <th scope="col">Direccion destino</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Fecha entrega</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listShipments" >
+            <td scope="row">{{item.id}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.note}}</td>
+            <td>{{item.originAddress}}</td>
+            <td>{{item.destinationAddress}}</td>
+            <td>{{item.weight}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.deliveryDate}}</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option *ngFor="let itemStatus of listStatus | async">{{itemStatus.name}}</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div class="options">
+                <button type="button" class="btn btn-primary btn-sm" (click)="deleteShipments(item.id)">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 

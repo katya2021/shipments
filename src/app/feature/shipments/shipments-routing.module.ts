@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ShipmentsCreateComponent } from './components/shipments-create/shipments-create.component';
 import { ShipmentsListComponent } from './components/shipments-list/shipments-list.component';
 import { ShipmentsComponent } from './components/shipments/shipments.component';
+import { TrackingShipmentSearchComponent } from './components/tracking-shipment-search/tracking-shipment-search.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: ShipmentsCreateComponent
+      },
+      {
+        path: 'search',
+        component: TrackingShipmentSearchComponent
       }
     ]
   }

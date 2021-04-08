@@ -30,20 +30,20 @@ export class LoginComponent implements OnInit {
 
   private initForm(): void {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
     });
   }
 
   public sendData(): void {
     if (this.form.valid) {
-      const {email, password} = this.form.value;
-      this.authenticationService.login({email, password})
-        .then((response: { token: string }) => {
-          this.tokenService.createToken(response);
-          this.navbarService.toggle(true);
-          this.router.navigate(['/']);
-        });
+    const {email, password} = this.form.value;
+    this.authenticationService.login({email, password})
+    .then((response: { token: string }) => {
+    this.tokenService.createToken(response);
+    this.navbarService.toggle(true);
+    this.router.navigate(['/']);
+    });
     }
   }
 }

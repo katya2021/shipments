@@ -6,7 +6,7 @@ import { StatusListComponent } from './components/status-list/status-list.compon
 import { StatusCreateComponent } from './components/status-create/status-create.component';
 import { StatusComponent } from './components/status/status.component';
 import { SharedModule } from '@shared/shared.module';
-import { StatusService } from './shared/service/status.service';
+import { StatusService } from '@shared/service/status.service';
 import { HttpService } from '@core/services/http/http.service';
 
 

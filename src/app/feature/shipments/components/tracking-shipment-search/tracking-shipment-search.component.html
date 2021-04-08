@@ -1,0 +1,22 @@
+
+<div class="container">
+  <button type="button" class="btn btn-secondary btn-sm" (click)="redirect()">Regresar</button>
+</div>
+<div class="tracking-shipment">
+  <div class="container">
+    <h2>Envío</h2>
+    <form [formGroup]="shipmentsForm" (ngSubmit)="search()">
+      <div class="shipment col-md-12">
+        <div class="form-group">
+          <label for="">Código</label>
+          <input class="form-control" type="number" placeholder="1234..." formControlName="codigo">
+          <small id="emailHelp" class="form-text text-muted">Ingresa el código del envío.</small>
+        </div>
+        <div class="button-shipment">
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-tracking-shipment [listTrackingShipment]="ShipmentDetailById"></app-tracking-shipment>

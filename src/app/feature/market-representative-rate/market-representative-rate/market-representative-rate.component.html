@@ -1,0 +1,18 @@
+<div class="market-representative-rate">
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+          <h5 class="card-title">Envíos ceiba</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Para envíos eficientes a todo el pais.</h6>    </div>
+      <div class="card-body">
+        <div class="trm">
+          <h6 class="card-subtitle mb-2 text-muted">TRM el día de hoy es</h6>
+          <b>{{ marketRepresentativeRate.valor | currency }}</b>
+        </div>
+        <button class="btn btn-success" (click)="redirect('search')">Rastreo de envío</button>
+        <button class="btn btn-outline-success" (click)="redirect('login')">Inicio sesíon</button>
+      </div>
+    </div>
+  </div>
+</div>
+

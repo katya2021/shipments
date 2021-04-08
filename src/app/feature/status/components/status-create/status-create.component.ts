@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { StatusService } from '@feature/status/shared/service/status.service';
+import { StatusService } from '@shared/service/status.service';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 5;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;

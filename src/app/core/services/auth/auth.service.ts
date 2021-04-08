@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http/http.service';
 import { TokenService } from '@core/services/token/token.service';
-import {API} from '@shared/configs';
+import { API } from '@shared/configs';
 import { environment } from 'src/environments/environment';
 
 

@@ -1,4 +1,4 @@
-import { StatusService } from '@feature/status/shared/service/status.service';
+import { StatusService } from '@shared/service/status.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StatusListComponent } from './status-list.component';

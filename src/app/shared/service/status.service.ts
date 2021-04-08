@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http/http.service';
 import { environment } from 'src/environments/environment';
-import { Status } from '../model/status';
+import { Status } from '@shared/model/status';
 
 @Injectable()
 export class StatusService {
@@ -14,5 +14,9 @@ export class StatusService {
 
   public save(status: Status) {
     return this.http.doPost<Status, boolean>(`${environment.apiUrl}/status`, status).toPromise();
+  }
+
+  public delete(id: string) {
+    return this.http.doDelete<Status>(`${environment.apiUrl}/status/${id}`).toPromise();
   }
 }

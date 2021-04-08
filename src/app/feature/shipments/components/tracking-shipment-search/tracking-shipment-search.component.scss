@@ -1,0 +1,17 @@
+.tracking-shipment{
+  h2{
+    display: flex;
+    justify-content: center;
+  }
+  .shipment{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+    .button-shipment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 7px;
+    }
+  }
+}
