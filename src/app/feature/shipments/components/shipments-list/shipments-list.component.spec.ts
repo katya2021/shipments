@@ -42,7 +42,7 @@ describe('ShipmentsListComponent', () => {
     await component.initData();
     // Assert
     expect(spyInitData).toHaveBeenCalledTimes(1);
-    expect(Array.isArray(component.listShipments)).toBeTruthy();
+    expect(Array.isArray(await component.listShipments)).toBeTruthy();
     done();
   });
 

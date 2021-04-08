@@ -7,6 +7,11 @@ import { StatusComponent } from './components/status/status.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/status/list',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
     component: StatusComponent,
     children: [
       {

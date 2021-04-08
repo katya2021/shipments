@@ -4,10 +4,25 @@
     <form [formGroup]="statuForm" (ngSubmit)="create()">
       <div class="form-group">
         <label for="exampleInputEmail1">Nombre</label>
-        <input class="form-control" type="text" placeholder="Bodega medellín..." formControlName="name">
+        <input
+          id="idStatusName"
+          class="form-control"
+          type="text"
+          placeholder="Bodega medellín..."
+          formControlName="name"
+        />
+        <div
+          class="error-message"
+          *ngIf="
+            statuForm.controls.name.errors &&
+            !statuForm.controls.name.valid &&
+            (statuForm.controls.name.touched || submitted)
+          "
+        >
+          <span>This field is required</span>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Crear</button>
+      <button id="buttonStatusCreate" type="submit" class="btn btn-primary">Crear</button>
     </form>
   </div>
 </div>
-

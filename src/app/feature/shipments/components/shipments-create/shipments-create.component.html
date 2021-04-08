@@ -1,34 +1,119 @@
-<div class='shipments-create'>
+<div class="shipments-create">
   <div class="container">
     <h2>Crear envíos</h2>
-      <form  [formGroup]="shipmentsForm" (ngSubmit)="create()">
-        <div class="row">
-            <div class="form-group col-md-12">
-              <label for="">Descripcion: </label>
-              <input class="form-control" type="text" placeholder="PC portatil ceiba marca DELL..." formControlName="descripcion">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="">Direccion origen: </label>
-              <input class="form-control" type="text" placeholder="" formControlName="originAddress">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="exampleInputEmail1">Direccion destino: </label>
-              <input class="form-control" type="text" placeholder="" formControlName="destinationAddress">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="exampleInputEmail1">Peso: </label>
-              <input class="form-control" type="number" placeholder="" formControlName="weight">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="exampleInputEmail1">Precio: </label>
-              <input class="form-control" type="number" placeholder="" formControlName="price" disabled>
-            </div>
-            <div class="form-group col-md-12">
-              <label for="">Nota: </label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="note" ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Crear</button>
+    <form [formGroup]="shipmentsForm">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="">Direccion origen: </label>
+          <input
+            id="idOriginAddress"
+            class="form-control"
+            type="text"
+            placeholder=""
+            formControlName="originAddress"
+          />
+          <div
+            class="error-message"
+            *ngIf="
+              shipmentsForm.controls.originAddress.errors &&
+              !shipmentsForm.controls.originAddress.valid &&
+              (shipmentsForm.controls.originAddress.touched || submitted)
+            "
+          >
+            <span>Este campo es requerido</span>
           </div>
-        </form>
-    </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Direccion destino: </label>
+          <input
+            id="idDestinationAddress"
+            class="form-control"
+            type="text"
+            placeholder=""
+            formControlName="destinationAddress"
+          />
+          <div
+          class="error-message"
+          *ngIf="
+            shipmentsForm.controls.destinationAddress.errors &&
+            !shipmentsForm.controls.destinationAddress.valid &&
+            (shipmentsForm.controls.destinationAddress.touched || submitted)
+          "
+        >
+          <span>Este campo es requerido</span>
+        </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="">Nota: </label>
+          <textarea
+            id="idNote"
+            class="form-control"
+            rows="3"
+            formControlName="note"
+          ></textarea>
+          <div
+          class="error-message"
+          *ngIf="
+            shipmentsForm.controls.note.errors &&
+            !shipmentsForm.controls.note.valid &&
+            (shipmentsForm.controls.note.touched || submitted)
+          "
+        >
+          <span>Este campo es requerido</span>
+        </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="">Descripcion: </label>
+          <input
+            id="idDescripcion"
+            class="form-control"
+            type="text"
+            placeholder="PC portatil ceiba marca DELL..."
+            formControlName="descripcion"
+          />
+          <div
+          class="error-message"
+          *ngIf="
+            shipmentsForm.controls.descripcion.errors &&
+            !shipmentsForm.controls.descripcion.valid &&
+            (shipmentsForm.controls.descripcion.touched || submitted)
+          "
+        >
+          <span>Este campo es requerido</span>
+        </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Peso(Kg): </label>
+          <input
+            id="idWeight"
+            class="form-control"
+            type="number"
+            placeholder=""
+            formControlName="weight"
+          />
+          <div
+          class="error-message"
+          *ngIf="
+            shipmentsForm.controls.weight.errors &&
+            !shipmentsForm.controls.weight.valid &&
+            (shipmentsForm.controls.weight.touched || submitted)
+          "
+        >
+          <span>Este campo es requerido</span>
+        </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Precio: </label>
+          <input
+            class="form-control"
+            type="text"
+            [value]="priceCalculator | currency"
+            placeholder=""
+            disabled
+          />
+        </div>
+        <button id="buttonshipmentsCreate" type="button" class="btn btn-primary col-md-6 offset-md-3" (click)="create()">Crear</button>
+      </div>
+    </form>
+  </div>
 </div>

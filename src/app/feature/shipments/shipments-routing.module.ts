@@ -8,6 +8,11 @@ import { TrackingShipmentSearchComponent } from './components/tracking-shipment-
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/shipments/list',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
     component: ShipmentsComponent,
     children: [
       {
@@ -17,12 +22,12 @@ const routes: Routes = [
       {
         path: 'create',
         component: ShipmentsCreateComponent
-      },
-      {
-        path: 'search',
-        component: TrackingShipmentSearchComponent
       }
     ]
+  },
+  {
+    path: 'search',
+    component: TrackingShipmentSearchComponent
   }
 ];
 

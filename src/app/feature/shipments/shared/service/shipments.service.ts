@@ -16,7 +16,7 @@ export class ShipmentsService {
   }
 
   public update(shipments: Shipments) {
-    return this.http.doPost<Shipments, boolean>(`${environment.apiUrl}/shipments`, shipments).toPromise();
+    return this.http.doPut<Shipments, boolean>(`${environment.apiUrl}/shipments/${shipments.id}`, shipments).toPromise();
   }
 
   public delete(id: string) {

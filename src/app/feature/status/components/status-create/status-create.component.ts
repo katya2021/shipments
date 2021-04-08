@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { StatusService } from '@shared/service/status.service';
-
-const LONGITUD_MINIMA_PERMITIDA_TEXTO = 5;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
   selector: 'app-status-create',
@@ -12,22 +10,28 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class StatusCreateComponent implements OnInit {
   public statuForm: FormGroup;
+  public submitted: boolean;
 
-  constructor(protected statuServices: StatusService) { } // protected statuServices: StatusService
+  constructor(private router: Router, protected statuServices: StatusService) { } // protected statuServices: StatusService
 
   public ngOnInit(): void {
     this.initForm();
   }
 
   public create() {
+    if (!this.statuForm.valid) {
+      this.submitted = true;
+      return;
+    }
+
     this.statuServices.save(this.statuForm.value);
+    this.router.navigate(['/status/list']);
+    alert('Se creo estado correctamente');
   }
 
   private initForm() {
     this.statuForm = new FormGroup({
-      name: new FormControl('', [
-      Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-      Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      name: new FormControl(null, [Validators.required])
     });
   }
 }

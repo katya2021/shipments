@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TrmApiQuote } from 'trm-api';
 import { MarketRepresentativeRateService } from '../service/market-representative-rate.service';
 
@@ -12,7 +11,7 @@ export class MarketRepresentativeRateComponent implements OnInit {
 
   public marketRepresentativeRate: TrmApiQuote;
 
-  constructor(private router: Router, private marketRepresentativeRateService: MarketRepresentativeRateService) { }
+  constructor(private marketRepresentativeRateService: MarketRepresentativeRateService) { }
 
   public ngOnInit(): void {
     this.initData();
@@ -20,9 +19,5 @@ export class MarketRepresentativeRateComponent implements OnInit {
 
   public async initData(): Promise<void> {
     this.marketRepresentativeRate = await this.marketRepresentativeRateService.getMarketRepresentativeRate();
-  }
-
-  public redirect(router: string) {
-    this.router.navigate(['/' + router]);
   }
 }

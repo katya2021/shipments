@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Shipments } from '@feature/shipments/shared/model/shipments';
 import { ShipmentsService } from '@feature/shipments/shared/service/shipments.service';
@@ -11,29 +12,64 @@ import { StatusService } from '@shared/service/status.service';
 })
 export class ShipmentsListComponent implements OnInit {
 
-  public listShipments: Shipments[];
+  public listShipments: Promise<Shipments[]>;
   public listStatus: Promise<Status[]>;
+  public shipment: Shipments;
+  public status: FormControl;
+  public showModal: boolean;
+  public submitted: boolean;
 
   constructor(protected shipmentsService: ShipmentsService, private statusService: StatusService) { }
 
   public ngOnInit(): void {
     this.initData();
-    this. getStatus();
+    this.initForm();
   }
 
-  public async initData(): Promise<void> {
-    this.listShipments = await this.shipmentsService.get();
+  public initData(): void {
+    this.listShipments = this.shipmentsService.get();
+    this.listStatus = this.statusService.get();
   }
 
-  public update(id: string) {
-    console.log(id);
+  public initForm(): void {
+    this.status = new FormControl(null, [Validators.required]);
   }
 
-  public deleteShipments(id: string) {
-    this.shipmentsService.delete(id);
+  public async update() {
+    if (!this.status.valid) {
+      this.submitted = true;
+      return;
+    }
+
+    if (this.invalidStatus()) {
+      alert('El estado fue previamente registrado');
+      return;
+    }
+
+    this.shipment.tracking.push({
+      id: this.status.value?.id,
+      name: this.status.value?.name,
+      type: this.status.value?.type,
+      createdAt: new Date(),
+    });
+
+    await this.shipmentsService.update(this.shipment);
+    await this.initData();
+    this.showModal = false;
   }
 
-  public getStatus() {
-  this.listStatus = this.statusService.get();
+  public showStatusModal(item: Shipments) {
+    this.shipment = item;
+    this.showModal = true;
+  }
+
+  public async deleteShipments(id: string) {
+    await this.shipmentsService.delete(id);
+    await this.initData();
+    alert('Se ha eliminado correctamente');
+  }
+
+  public invalidStatus(): boolean {
+    return this.shipment.tracking.findIndex(status => this.status.value.id === status.id) > -1;
   }
 }

@@ -4,7 +4,6 @@ import { TokenService } from '@core/services/token/token.service';
 import { API } from '@shared/configs';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })

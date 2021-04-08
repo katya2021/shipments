@@ -1,26 +1,58 @@
 <div class="login">
-  <form [formGroup]="form" >
-      <div class="contenedor">
-          <div class="row">
-              <div class="title">
-                  <span>Iniciar sesion</span>
-              </div>
-          </div>
-          <div class="row">
-              <div class="campo">
-                  <input type="text" formControlName="email" value="" placeholder="Usuario">
-              </div>
-          </div>
-          <div class="row">
-              <div class="campo">
-                  <input type="text" formControlName="password" value="" placeholder="Contraseña">
-              </div>
-          </div>
-          <div class="row">
-              <div class="action">
-                  <button (click)="sendData()">Entrar</button>
-              </div>
-          </div>
+  <form [formGroup]="form">
+    <div class="contenedor">
+      <div class="row">
+        <div class="title">
+          <span>Iniciar sesion</span>
+        </div>
       </div>
+      <div class="row">
+        <div class="campo">
+          <input
+            id="idUser"
+            type="text"
+            formControlName="email"
+            placeholder="Usuario"
+          />
+
+          <div
+            class="error-message"
+            *ngIf="
+              form.controls.email.errors &&
+              !form.controls.email.valid &&
+              (form.controls.email.touched || submitted)
+            "
+          >
+            <span>Este campo es requerido</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="campo">
+          <input
+            id="idPassword"
+            type="password"
+            formControlName="password"
+            placeholder="Contraseña"
+          />
+
+          <div
+            class="error-message"
+            *ngIf="
+              form.controls.password.errors &&
+              !form.controls.password.valid &&
+              (form.controls.password.touched || submitted)
+            "
+          >
+            <span>Este campo es requerido</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="action">
+          <button class="buttonLogin" (click)="sendData()">Entrar</button>
+        </div>
+      </div>
+    </div>
   </form>
 </div>

@@ -12,30 +12,31 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   @Input()
-  public items: MenuItem[];
+  public items: MenuItem[] = [];
 
   public showItems: MenuItem[];
+
+  public isAuth: boolean;
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
     private navbarService: NavbarService
-  ) {
-  }
+  ) {}
 
   public ngOnInit(): void {
-    this.navbarService.subscribe((toggle) => this.loadMenu(toggle));
+    this.navbarService.subscribe((isAuth) => this.loadMenu(isAuth));
     this.navbarService.toggle(this.authenticationService.isAuthenticated);
   }
 
-  public loadMenu(toggle: boolean): void {
-    console.log(this.showItems, toggle);
-    this.showItems = this.items.filter((item) => (item.isAuth === toggle));
+  public loadMenu(isAuth: boolean): void {
+    this.isAuth = isAuth;
+    this.showItems = this.items.filter((item) => (item.isAuth === isAuth));
   }
 
   public logout() {
     this.authenticationService.logout();
     this.navbarService.toggle(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/trm']);
   }
 }

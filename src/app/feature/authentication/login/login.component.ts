@@ -14,6 +14,7 @@ import {AuthenticationService} from '@core/services/auth/auth.service';
 export class LoginComponent implements OnInit {
 
   public form: FormGroup;
+  public submitted: boolean;
 
   constructor(
     private router: Router,
@@ -30,20 +31,24 @@ export class LoginComponent implements OnInit {
 
   private initForm(): void {
     this.form = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
     });
   }
 
   public sendData(): void {
-    if (this.form.valid) {
-    const {email, password} = this.form.value;
-    this.authenticationService.login({email, password})
-    .then((response: { token: string }) => {
-    this.tokenService.createToken(response);
-    this.navbarService.toggle(true);
-    this.router.navigate(['/']);
-    });
+
+    if (!this.form.valid) {
+      this.submitted = true;
+      return;
     }
+
+    this.authenticationService
+      .login(this.form.value)
+      .then((response: { token: string }) => {
+        this.tokenService.createToken(response);
+        this.navbarService.toggle(true);
+        this.router.navigate(['/']);
+      });
   }
 }

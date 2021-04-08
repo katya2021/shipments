@@ -12,4 +12,5 @@ export class Shipments {
   tracking: Status[];
   note: string;
   description: string;
+  currentStatus: {};
 }

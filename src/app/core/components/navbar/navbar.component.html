@@ -1,6 +1,6 @@
 <nav>
     <a *ngFor="let item of showItems" [routerLink]="item.url" routerLinkActive="active">{{item.nombre}}</a>
-    <a (click)="logout()">Cerrar sesion</a>
+    <a  id="linkLogout" *ngIf="isAuth" (click)="logout()">Cerrar sesion</a>
 </nav>
 
 
