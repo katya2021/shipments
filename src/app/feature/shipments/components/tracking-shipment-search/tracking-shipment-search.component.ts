@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ShipmentsService } from '@feature/shipments/shared/service/shipments.service';
 
 @Component({
@@ -14,7 +13,6 @@ export class TrackingShipmentSearchComponent implements OnInit {
   public listTrackingShipment: [];
 
   constructor(
-    private router: Router,
     protected shipmentsServices: ShipmentsService
   ) { }
 
@@ -31,9 +29,4 @@ export class TrackingShipmentSearchComponent implements OnInit {
       codigo: new FormControl(),
     });
   }
-
-  public redirect() {
-    this.router.navigate(['/trm']);
-  }
-
 }

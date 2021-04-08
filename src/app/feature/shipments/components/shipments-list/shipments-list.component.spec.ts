@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http/http.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { StatusService } from '@shared/service/status.service';
 
 describe('ShipmentsListComponent', () => {
   let component: ShipmentsListComponent;
@@ -21,7 +22,7 @@ describe('ShipmentsListComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule
       ],
-      providers: [ShipmentsService, HttpService]
+      providers: [ShipmentsService, HttpService, StatusService]
     })
       .compileComponents();
   }));
@@ -34,7 +35,7 @@ describe('ShipmentsListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('#get  Se intenta listar usuarios ', async (done: DoneFn) => {
+  it('#get  Se intenta listar envíos', async (done: DoneFn) => {
     // Arrange
     const spyInitData = spyOn(shipmentsService, 'get').and.returnValue(Promise.resolve([]));
     // Act

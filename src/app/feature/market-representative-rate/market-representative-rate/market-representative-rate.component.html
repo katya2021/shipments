@@ -7,7 +7,7 @@
       <div class="card-body">
         <div class="trm">
           <h6 class="card-subtitle mb-2 text-muted">TRM el día de hoy es</h6>
-          <b>{{ marketRepresentativeRate.valor | currency }}</b>
+          <b>{{ marketRepresentativeRate?.valor | currency }}</b>
         </div>
         <button class="btn btn-success" (click)="redirect('search')">Rastreo de envío</button>
         <button class="btn btn-outline-success" (click)="redirect('login')">Inicio sesíon</button>

@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MarketRepresentativeRateComponent } from './market-representative-rate.component';
 import { MarketRepresentativeRateService } from '../service/market-representative-rate.service';
-import { TrmApiQuote } from 'trm-api';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -33,22 +32,15 @@ describe('MarketRepresentativeRateComponent', () => {
     fixture.detectChanges();
   });
 
-  it('#get  Se intenta listar usuarios ', async (done: DoneFn) => {
+  it('#getMarketRepresentativeRate  Se intenta consultar el TRM actual', async (done: DoneFn) => {
     // Arrange
-    const data: TrmApiQuote = {
-      valor: '',
-      unidad: '',
-      vigenciadesde: '',
-      vigenciahasta: '',
-    };
+    const spyInitData = spyOn(marketRepresentativeRateService, 'getMarketRepresentativeRate');
 
-    const spyInitData = spyOn(marketRepresentativeRateService, 'getMarketRepresentativeRate')
-    .and.returnValue(Promise.resolve<TrmApiQuote>(data));
     // Act
     await component.initData();
+
     // Assert
     expect(spyInitData).toHaveBeenCalledTimes(1);
-    expect(Array.isArray(component.marketRepresentativeRate)).toBeTruthy();
     done();
   });
 });

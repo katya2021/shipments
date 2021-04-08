@@ -3,7 +3,7 @@
 		<div class="col-md-6 offset-md-3">
 			<h4>Seguimiento del envío</h4>
 			<ul class="timeline">
-				<li *ngFor="let item of listTrackingShipment.tracking">
+				<li *ngFor="let item of listTrackingShipment?.tracking">
 					<a>{{item.name}}</a>
 					<a class="float-right">{{item.createdAt}}</a>
 				</li>
