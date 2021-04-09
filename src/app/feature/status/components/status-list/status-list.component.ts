@@ -5,8 +5,7 @@ import { StatusService } from '@shared/service/status.service';
 
 @Component({
   selector: 'app-status-list',
-  templateUrl: './status-list.component.html',
-  styleUrls: ['./status-list.component.scss']
+  templateUrl: './status-list.component.html'
 })
 export class StatusListComponent implements OnInit {
   public listStatus: Status[];
@@ -23,7 +22,7 @@ export class StatusListComponent implements OnInit {
 
   public async deleteStatus(id: string) {
     await this.statuService.delete(id);
-    await this.initData();
+    this.initData();
     alert('Se ha eliminado correctamente');
   }
 }

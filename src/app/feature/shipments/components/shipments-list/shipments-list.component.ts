@@ -54,7 +54,7 @@ export class ShipmentsListComponent implements OnInit {
     });
 
     await this.shipmentsService.update(this.shipment);
-    await this.initData();
+    this.initData();
     this.showModal = false;
   }
 
@@ -65,7 +65,7 @@ export class ShipmentsListComponent implements OnInit {
 
   public async deleteShipments(id: string) {
     await this.shipmentsService.delete(id);
-    await this.initData();
+    this.initData();
     alert('Se ha eliminado correctamente');
   }
 

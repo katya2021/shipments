@@ -17,7 +17,6 @@ export class ShipmentsCreateComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initPage();
-    console.log('isAvailableToday => ', this.isAvailableToday());
   }
 
   public initPage(): void {
